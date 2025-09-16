@@ -84,7 +84,3 @@ Função: exibir em tempo real as mensagens publicadas e recebidas pelos disposi
 3. Importe o fluxo do arquivo `node-red-flow.json`.  
 4. Clique em **Deploy**.  
 5. Acesse o dashboard em `http://localhost:1880/ui` para visualizar e interagir com o sistema Passa Bola.  
-
----
-
-## 📂 Estrutura do Repositório
