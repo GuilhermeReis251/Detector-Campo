@@ -1,0 +1,254 @@
+[
+    {
+        "id": "d696095f7ef1efe3",
+        "type": "tab",
+        "label": "Fluxo 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "28ca25b24b070e5f",
+        "type": "mqtt in",
+        "z": "d696095f7ef1efe3",
+        "name": "",
+        "topic": "campo/lateral",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "ae2be777d867b4b3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "2a27b967460b218a"
+            ]
+        ]
+    },
+    {
+        "id": "4fdfd23a2668e486",
+        "type": "mqtt in",
+        "z": "d696095f7ef1efe3",
+        "name": "",
+        "topic": "campo/escanteio",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "ae2be777d867b4b3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 340,
+        "wires": [
+            [
+                "09a9e7702d654f22"
+            ]
+        ]
+    },
+    {
+        "id": "01a967f0076c2801",
+        "type": "mqtt in",
+        "z": "d696095f7ef1efe3",
+        "name": "",
+        "topic": "campo/gol",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "ae2be777d867b4b3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 520,
+        "wires": [
+            [
+                "aa10a0f24fea914e"
+            ]
+        ]
+    },
+    {
+        "id": "23ba342a515cee72",
+        "type": "ui_text",
+        "z": "d696095f7ef1efe3",
+        "group": "b9c9302388930497",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Última Lateral",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 520,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "15da68544f93f1c6",
+        "type": "ui_text",
+        "z": "d696095f7ef1efe3",
+        "group": "b9c9302388930497",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Último Escanteio",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 510,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7dd86da741bef71d",
+        "type": "ui_text",
+        "z": "d696095f7ef1efe3",
+        "group": "b9c9302388930497",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Último Gol",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 430,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "2a27b967460b218a",
+        "type": "function",
+        "z": "d696095f7ef1efe3",
+        "name": "function 1",
+        "func": "context.count = (context.count || 0) + 1;\nmsg.payload = context.count;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 180,
+        "wires": [
+            [
+                "23ba342a515cee72"
+            ]
+        ]
+    },
+    {
+        "id": "09a9e7702d654f22",
+        "type": "function",
+        "z": "d696095f7ef1efe3",
+        "name": "function 2",
+        "func": "context.count = (context.count || 0) + 1;\nmsg.payload = context.count;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 340,
+        "wires": [
+            [
+                "15da68544f93f1c6"
+            ]
+        ]
+    },
+    {
+        "id": "aa10a0f24fea914e",
+        "type": "function",
+        "z": "d696095f7ef1efe3",
+        "name": "function 3",
+        "func": "context.count = (context.count || 0) + 1;\nmsg.payload = context.count;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 520,
+        "wires": [
+            [
+                "7dd86da741bef71d"
+            ]
+        ]
+    },
+    {
+        "id": "ae2be777d867b4b3",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": "15",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b9c9302388930497",
+        "type": "ui_group",
+        "name": "Eventos",
+        "tab": "5869631bac76b05a",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5869631bac76b05a",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "496c340a275e1b62",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

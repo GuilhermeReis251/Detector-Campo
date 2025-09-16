@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Guilherme Reis",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -13,
+      "left": -134.4,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 131,
+      "left": -172.8,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 63.8,
+      "left": -144,
+      "attrs": { "color": "green", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "btn2:2.r", "esp:GND.1", "green", [ "h0" ] ],
+    [ "btn3:2.r", "esp:GND.1", "green", [ "h0.2", "v38.6", "h67.2", "v19.2" ] ],
+    [ "btn1:2.r", "esp:GND.1", "green", [ "h48.2", "v134.6" ] ],
+    [ "btn1:1.r", "esp:13", "green", [ "v0" ] ],
+    [ "btn3:1.r", "esp:12", "green", [ "v0" ] ],
+    [ "btn2:1.r", "esp:14", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
